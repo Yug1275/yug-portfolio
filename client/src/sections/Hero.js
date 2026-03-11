@@ -55,7 +55,7 @@ function Hero() {
 
         {/* RIGHT SIDE */}
 
-        <div className="flex-1 h-[500px]">
+        <div className="flex-1 h-[600px]">
 
           <Spline scene="https://prod.spline.design/AcoTuX6zf3KfZ36W/scene.splinecode" />
 
