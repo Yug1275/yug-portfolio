@@ -1,14 +1,14 @@
 import Hero from "../sections/Hero";
-import AboutPreview from "../sections/AboutPreview";
-import FeaturedProjects from "../sections/FeaturedProjects";
+import About from "../pages/About";
+import Projects from "../pages/Projects";
 import CTA from "../sections/CTA";
 
 function Home() {
   return (
     <>
       <Hero />
-      <AboutPreview />
-      <FeaturedProjects />
+      <About />
+      <Projects />
       <CTA />
     </>
   );

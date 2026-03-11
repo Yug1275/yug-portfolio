@@ -1,5 +1,8 @@
 import Spline from "@splinetool/react-spline";
 import { TypeAnimation } from "react-type-animation";
+import { Link } from "react-router-dom";
+import resume from "../assets/Yug Patel Resume.pdf";
+
 
 function Hero() {
   return (
@@ -41,13 +44,21 @@ function Hero() {
 
           <div className="mt-8 space-x-4">
 
-            <button className="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition">
-              View Projects
-            </button>
+            <div className="flex gap-4">
 
-            <button className="px-6 py-3 border border-white rounded-lg hover:bg-white hover:text-black transition">
-              Download Resume
-            </button>
+              <Link to="/projects">
+                <button className="border border-white px-6 py-2 rounded hover:bg-white hover:text-black transition duration-300">
+                  View Projects
+                </button>
+              </Link>
+
+              <a href={resume} download>
+                <button className="border border-white px-6 py-2 rounded hover:bg-white hover:text-black transition duration-300">
+                  Download Resume
+                </button>
+              </a>
+
+            </div>
 
           </div>
 
