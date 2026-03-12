@@ -1,7 +1,7 @@
 import Spline from "@splinetool/react-spline";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
-import resume from "../assets/Yug Patel Resume.pdf";
+
 
 
 function Hero() {
@@ -22,22 +22,21 @@ function Hero() {
 
             <TypeAnimation
               sequence={[
-                "MERN Stack Developer",
+                "Computer Science Engineering Student",
                 2000,
-                "AI & ML Enthusiast",
+                "Full Stack Web Developer",
                 2000,
-                "Frontend Developer",
+                "Passionate About Building Projects",
                 2000,
               ]}
-              speed={50}
+              speed={80}
               repeat={Infinity}
             />
 
           </div>
 
           <p className="mt-6 max-w-lg text-gray-400">
-            I build modern web applications using the MERN stack
-            and explore Artificial Intelligence and Machine Learning.
+          I am passionate about developing modern web applications and continuously exploring new technologies, including full-stack development and Artificial Intelligence, to build impactful digital solutions.
           </p>
 
           {/* Buttons */}
@@ -52,7 +51,7 @@ function Hero() {
                 </button>
               </Link>
 
-              <a href={resume} download>
+              <a href="/assets/Yug Patel Resume.pdf" download>
                 <button className="border border-white px-6 py-2 rounded hover:bg-white hover:text-black transition duration-300">
                   Download Resume
                 </button>

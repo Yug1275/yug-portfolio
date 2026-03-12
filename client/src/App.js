@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import ScrollToTop from "./components/Scroll";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
@@ -13,7 +13,6 @@ import Education from "./pages/Education";
 import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Achievements from "./pages/Achievements";
-import Hobbies from "./pages/Hobbies";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 
@@ -38,6 +37,8 @@ function App() {
   return (
     <Router>
 
+      <ScrollToTop />
+
       <Navbar />
 
       <Routes>
@@ -48,7 +49,6 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/achievements" element={<Achievements />} />
-        <Route path="/hobbies" element={<Hobbies />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

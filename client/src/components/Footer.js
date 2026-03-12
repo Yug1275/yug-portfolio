@@ -24,11 +24,11 @@ function Footer() {
 
           <div className="flex gap-4 text-gray-600">
 
-            <a href="mailto:yugpatel1275@gmail.com">
+            <a href="mailto:yjpatel1275@gmail.com" target="_blank"  rel="noopener noreferrer">
               <Mail className="hover:text-black cursor-pointer" />
             </a>
 
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/yugpatel040205/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="hover:text-black cursor-pointer" />
             </a>
 
@@ -36,7 +36,7 @@ function Footer() {
               <Github className="hover:text-black cursor-pointer" />
             </a>
 
-            <a href="https://github.com/Yug1275" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/yugpatel253/" target="_blank" rel="noopener noreferrer">
               <Instagram className="hover:text-black cursor-pointer" />
             </a>
 
@@ -55,14 +55,43 @@ function Footer() {
 
           <ul className="space-y-2 text-gray-600">
 
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/experience">Experience</Link></li>
-            <li><Link to="/projects">Projects</Link></li>
-            <li><Link to="/skills">Skills</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+  <li>
+    <Link to="/" className="hover:text-black transition">
+      Home
+    </Link>
+  </li>
 
-          </ul>
+  <li>
+    <Link to="/about" className="hover:text-black transition">
+      About
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/experience" className="hover:text-black transition">
+      Experience
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/projects" className="hover:text-black transition">
+      Projects
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/skills" className="hover:text-black transition">
+      Skills
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/contact" className="hover:text-black transition">
+      Contact
+    </Link>
+  </li>
+
+</ul>
 
         </div>
 
@@ -77,7 +106,10 @@ function Footer() {
 
           <div className="space-y-2 text-gray-600">
 
-            <p>yugpatel1275@gmail.com</p>
+            
+            <a href="mailto:yjpatel1275@gmail.com" target="_blank"  rel="noopener noreferrer">
+              <p className="hover:text-black cursor-pointer" >yjpatel1275@gmail.com</p>
+            </a>
 
             <p>India</p>
 
