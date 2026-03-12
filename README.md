@@ -10,10 +10,10 @@ The portfolio is designed to be **responsive, interactive, and dynamic**, with p
 ## 🌐 Live Website
 
 Frontend (Netlify)  
-https://your-netlify-url.netlify.app
+https://yugdev.netlify.app/
 
 Backend API (Render)  
-https://your-render-backend-url.onrender.com
+https://yug-portfolio-backend.onrender.com/
 
 ---
 
