@@ -76,7 +76,7 @@ function Projects() {
     : -1;
 
   return (
-    <section className="py-8 px-8 max-w-7xl mx-auto">
+    <section className="py-8 px-4 sm:px-8 max-w-7xl mx-auto">
 
       <h2 className="text-4xl font-bold text-center mb-2">
         Featured Projects
@@ -87,7 +87,7 @@ function Projects() {
       </p>
 
       {/* ── CARD STAGE ── */}
-      <div className="relative overflow-hidden rounded-2xl card-hover " style={{ minHeight: 420 }}>
+      <div className="relative overflow-hidden rounded-2xl card-hover" style={{ minHeight: 'clamp(320px, 60vw, 480px)' }}>
         {projects.map((project, idx) => {
           const isCurrent = idx === current;
           const isIncoming = idx === incomingIdx;
@@ -137,7 +137,7 @@ function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-xl w-full h-[320px] object-cover shadow-lg"
+                  className="rounded-xl w-full h-[200px] sm:h-[260px] md:h-[320px] object-cover shadow-lg"
                 />
               </div>
 

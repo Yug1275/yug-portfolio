@@ -3,9 +3,9 @@ function Resume() {
   const resumeFile = "/assets/Yug Patel Resume.pdf"; // put resume in public/assets
 
   return (
-    <section className="py-8 px-8 max-w-7xl mx-auto">
+    <section className="py-8 px-4 sm:px-8 max-w-7xl mx-auto">
 
-      <div className="max-w-4xl mx-auto px-6">
+<div className="max-w-4xl mx-auto px-4 sm:px-6">
 
         <h1 className="text-4xl font-bold text-center mb-2">Resume</h1>
 
@@ -17,7 +17,7 @@ function Resume() {
         <div className="mt-12 bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-8 shadow-xl space-y-6 card-hover">
 
           {/* PDF PREVIEW */}
-          <div className="w-full h-[600px] rounded-xl overflow-hidden border border-gray-300">
+          <div className="w-full h-[60vh] min-h-[300px] rounded-xl overflow-hidden border border-gray-300">
 
             <iframe
               src={resumeFile}

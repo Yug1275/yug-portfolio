@@ -19,7 +19,7 @@ function Contact() {
   return (
     <section className="py-8 bg-white">
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         <h1 className="text-4xl font-bold text-center mb-2">Contact</h1>
 
@@ -27,7 +27,7 @@ function Contact() {
           Feel free to reach out for opportunities or collaborations.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-10 mt-16">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 mt-8 md:mt-16">
 
           {/* LEFT CONTACT INFO */}
 
@@ -89,7 +89,7 @@ function Contact() {
                 })
               });
             }}
-            className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-8 shadow-xl space-y-6"
+            className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-5 sm:p-8 shadow-xl space-y-6"
           >
 
             {/* NAME */}

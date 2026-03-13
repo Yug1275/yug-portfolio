@@ -4,7 +4,7 @@ function About() {
 
   return (
 
-    <section className="px-8 py-8 max-w-6xl mx-auto">
+    <section className="px-4 sm:px-8 py-8 max-w-6xl mx-auto">
 
       {/* Heading */}
 
@@ -19,7 +19,7 @@ function About() {
 
       {/* Main Container */}
 
-      <div className="flex flex-col md:flex-row items-center gap-16">
+      <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
 
 
         {/* Left Content */}
@@ -28,7 +28,7 @@ function About() {
 
           {/* Card */}
 
-          <div className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-10 shadow-xl space-y-8 card-hover">
+          <div className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-6 sm:p-10 shadow-xl space-y-8 card-hover">
 
             {/* Item 1 */}
 
@@ -74,12 +74,10 @@ function About() {
               <Brain className="text-black mt-1" size={24} />
 
               <p className="text-gray-700 leading-relaxed">
-
-                I am also deeply interested in
-                <span className="font-semibold text-black"> Artificial Intelligence and Machine Learning</span>
-                and enjoy participating in hackathons and development events
-                to improve my problem-solving skills.
-
+                I also enjoy exploring modern web technologies and building interactive
+                digital experiences. I like experimenting with new tools, frameworks,
+                and creative workflows to turn ideas into clean and responsive
+                applications.
               </p>
 
             </div>

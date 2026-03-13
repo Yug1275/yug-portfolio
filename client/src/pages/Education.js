@@ -1,6 +1,6 @@
 function Education() {
   return (
-    <section className="px-8 py-8 max-w-6xl mx-auto">
+    <section className="px-4 sm:px-8 py-8 max-w-6xl mx-auto">
 
       <h1 className="text-4xl font-bold text-center mb-2">
         Education
@@ -13,7 +13,7 @@ function Education() {
 
         {/* PDEU CARD */}
 
-        <div className="grid md:grid-cols-[150px_1fr_220px] gap-10 items-center bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-10 shadow-xl card-hover">
+        <div className="grid md:grid-cols-[150px_1fr_220px] gap-6 md:gap-10 items-start bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-6 sm:p-10 shadow-xl card-hover">
 
 
           {/* LEFT YEAR SECTION */}
@@ -121,7 +121,7 @@ function Education() {
 
         {/* SCHOOL CARD */}
 
-        <div className="grid md:grid-cols-[150px_1fr_220px] gap-10 items-center bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-10 shadow-xl card-hover">
+        <div className="grid md:grid-cols-[150px_1fr_220px] gap-6 md:gap-10 items-start bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-6 sm:p-10 shadow-xl card-hover">
 
 
           {/* LEFT YEAR */}

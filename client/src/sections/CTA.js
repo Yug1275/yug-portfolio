@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 function CTA() {
   return (
-    <section className="py-20 text-center">
+    <section className="py-12 sm:py-20 text-center px-4">
 
-      <h2 className="text-4xl font-bold">
+      <h2 className="text-3xl sm:text-4xl font-bold">
         Let's Work Together
       </h2>
 

@@ -40,9 +40,9 @@ function Achievements() {
   ];
 
   return (
-    <section className="py-8 px-8 max-w-7xl mx-auto">
+    <section className="py-8 px-4 sm:px-8 max-w-7xl mx-auto">
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-2 sm:px-6">
 
         <h1 className="text-4xl font-bold text-center mb-2">Achievements</h1>
 
@@ -51,13 +51,13 @@ function Achievements() {
         </p>
 
         {/* GRID */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16">
+        <div className="grid md:grid-cols-3 gap-6 mt-8 md:mt-16">
 
           {achievements.map((item, index) => (
 
             <div
               key={index}
-              className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-10 shadow-xl space-y-6 card-hover"
+              className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-6 sm:p-10 shadow-xl space-y-6 card-hover"
             >
 
               {/* IMAGE */}

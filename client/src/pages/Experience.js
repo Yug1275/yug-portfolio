@@ -1,6 +1,6 @@
 function Experience() {
   return (
-    <section className="px-8 py-8 max-w-6xl mx-auto">
+    <section className="px-4 sm:px-8 py-8 max-w-6xl mx-auto">
 
       {/* Heading */}
 
@@ -15,7 +15,7 @@ function Experience() {
 
       {/* Experience Card */}
 
-      <div className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-10 shadow-xl space-y-8 card-hover">
+      <div className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-6 sm:p-10 shadow-xl space-y-8 card-hover">
 
         {/* Title */}
 

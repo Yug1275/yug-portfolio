@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="bg-white text-black border-t border-gray-200 mt-20">
 
-      <div className="max-w-6xl mx-auto px-8 py-16 grid md:grid-cols-3 gap-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-16 grid md:grid-cols-3 gap-8 md:gap-12">
 
         {/* Left Section */}
 
@@ -129,7 +129,7 @@ function Footer() {
 
       <div className="border-t border-gray-200">
 
-        <div className="max-w-6xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between text-gray-600 text-sm">
+<div className="max-w-6xl mx-auto px-4 sm:px-8 py-6 flex flex-col md:flex-row justify-between text-gray-600 text-sm">
 
           <p>© 2026 Yug Patel. All rights reserved.</p>
 
