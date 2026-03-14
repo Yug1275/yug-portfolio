@@ -77,7 +77,7 @@ function Contact() {
 
               const formData = new FormData(e.target);
 
-              await fetch("http://localhost:5000/api/contact", {
+              await fetch("https://yug-portfolio-backend.onrender.com/api/contact", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json"
