@@ -104,21 +104,24 @@ function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex-1 flex justify-center w-full"
         >
-          <div className="relative group perspective-1000">
-            {/* Glow behind image */}
-            <div className="absolute -inset-4 bg-gradient-to-tr from-gray-500/30 to-white/10 rounded-full blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
-            
-            {/* Image Container */}
-            <motion.div 
-              whileHover={{ scale: 1.05, rotateY: 10, rotateX: 5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative rounded-full p-2 bg-gradient-to-br from-white/20 to-white/5 border border-white/10 backdrop-blur-sm"
+          <div className="relative group w-64 sm:w-80 h-[390px] sm:h-[520px] overflow-visible" style={{ perspective: "1000px" }}>
+            {/* Soft outer glow */}
+            <div className="absolute -inset-6 rounded-[3rem] bg-gradient-to-tr from-white/10 via-transparent to-cyan-300/10 blur-3xl opacity-35 group-hover:opacity-55 transition-opacity duration-700" />
+
+            {/* Frame */}
+            <motion.div
+              className="relative h-full w-full rounded-[3rem] p-[3px] bg-[linear-gradient(145deg,rgba(255,255,255,0.4),rgba(255,255,255,0.08),rgba(255,255,255,0.35))] shadow-[0_0_50px_rgba(255,255,255,0.12)]"
             >
-              <img
-                src="/assets/yug_profile_pic.png"
-                alt="Yug Patel"
-                className="w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-full shadow-2xl"
-              />
+              <div className="relative h-full w-full overflow-hidden rounded-[calc(3rem-3px)] border border-white/10 bg-slate-950/70 backdrop-blur-sm">
+                <img
+                  src="/assets/yug_profile_pic.png"
+                  alt="Yug Patel"
+                  className="h-full w-full object-cover object-center"
+                />
+
+                <div className="absolute inset-x-5 top-5 h-24 rounded-full bg-white/10 blur-2xl opacity-35" />
+                <div className="absolute inset-x-5 bottom-5 h-20 rounded-full bg-cyan-300/10 blur-2xl opacity-40" />
+              </div>
             </motion.div>
           </div>
         </motion.div>
