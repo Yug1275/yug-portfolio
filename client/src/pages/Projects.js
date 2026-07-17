@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import API from "../utils/api";
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
 
 const SLIDE_DURATION = 5000;
 
@@ -16,8 +18,12 @@ function Projects() {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const res = await API.get("/projects/featured");
-      setProjects(res.data);
+      try {
+        const res = await API.get("/projects/featured");
+        setProjects(res.data);
+      } catch (error) {
+        console.error("Failed to fetch projects", error);
+      }
     };
     fetchProjects();
   }, []);
@@ -76,23 +82,39 @@ function Projects() {
     : -1;
 
   return (
-    <section className="py-8 px-4 sm:px-8 max-w-7xl mx-auto">
+    <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto relative">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-blue-500/5 rounded-full filter blur-[150px] -z-10 pointer-events-none" />
 
-      <h2 className="text-4xl font-bold text-center mb-2">
-        Featured Projects
-      </h2>
-
-      <p className="text-gray-600 text-center mt-4 mb-10">
-        A selection of projects that showcase my skills and problem-solving abilities.
-      </p>
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+          Featured Projects
+        </h2>
+        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          A selection of projects that showcase my skills and problem-solving abilities.
+        </p>
+      </motion.div>
 
       {/* ── CARD STAGE ── */}
-      <div className="relative overflow-hidden rounded-2xl card-hover" style={{ minHeight: 'clamp(320px, 60vw, 480px)' }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative overflow-hidden rounded-2xl" 
+        style={{ minHeight: 'clamp(350px, 50vw, 420px)' }}
+      >
         {projects.map((project, idx) => {
           const isCurrent = idx === current;
           const isIncoming = idx === incomingIdx;
 
-          let transform = "translateX(60px)";
+          let transform = "translateX(60px) scale(0.95)";
           let opacity = "0";
           let pointerEvents = "none";
           let zIndex = 0;
@@ -100,18 +122,17 @@ function Projects() {
 
           if (isCurrent) {
             if (isAnimating) {
-              transform = direction === "left" ? "translateX(-60px)" : "translateX(60px)";
+              transform = direction === "left" ? "translateX(-60px) scale(0.95)" : "translateX(60px) scale(0.95)";
               opacity = "0";
             } else {
-              transform = "translateX(0)";
+              transform = "translateX(0) scale(1)";
               opacity = "1";
               pointerEvents = "auto";
               zIndex = 1;
-              /* first card drives the stage height */
               if (idx === 0) position = "relative";
             }
           } else if (isIncoming) {
-            transform = "translateX(0)";
+            transform = "translateX(0) scale(1)";
             opacity = "1";
             pointerEvents = "auto";
             zIndex = 2;
@@ -127,52 +148,57 @@ function Projects() {
                 opacity,
                 pointerEvents,
                 zIndex,
-                transition: "transform 0.45s cubic-bezier(0.65,0,0.2,1), opacity 0.45s ease",
+                transition: "transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease",
                 willChange: "transform, opacity",
               }}
-              className="w-full grid md:grid-cols-[1.3fr_1fr] gap-10 items-center bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-8 shadow-xl"
+              className="w-full h-full grid lg:grid-cols-[1fr_1.5fr] gap-0 items-center glass-panel group"
             >
               {/* IMAGE */}
-              <div>
+              <div className="relative h-full overflow-hidden rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none border-b lg:border-b-0 lg:border-r border-white/10">
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-xl w-full h-[200px] sm:h-[260px] md:h-[320px] object-cover shadow-lg"
+                  className="w-full h-[200px] sm:h-[250px] lg:h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
 
               {/* CONTENT */}
-              <div className="space-y-6">
-                <h3 className="text-3xl font-bold">{project.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{project.description}</p>
+              <div className="p-6 sm:p-8 lg:p-10 space-y-6 flex flex-col h-full justify-center">
+                <div>
+                  <h3 className="text-2xl font-bold tracking-tight text-white mb-2">{project.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-sm sm:text-base">{project.description}</p>
+                </div>
 
                 {/* TECH STACK */}
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech, i) => (
-                    <span key={i} className="border border-gray-400 px-3 py-1 rounded-lg text-sm">
+                    <span key={i} className="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-xs font-medium text-gray-300 shadow-sm">
                       {tech}
                     </span>
                   ))}
                 </div>
 
                 {/* BUTTONS */}
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-wrap gap-3 pt-2">
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition"
+                    className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg text-white text-sm font-medium transition-all duration-300"
                   >
-                    GitHub
+                    <Github className="w-4 h-4" />
+                    <span>Source</span>
                   </a>
                   {project.liveLink && (
                     <a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border border-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition"
+                      className="flex items-center gap-2 bg-white text-black hover:bg-gray-200 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300"
                     >
-                      Live Demo
+                      <ExternalLink className="w-4 h-4" />
+                      <span>Live Demo</span>
                     </a>
                   )}
                 </div>
@@ -180,55 +206,53 @@ function Projects() {
             </div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* ── CONTROLS BAR ── */}
-      <div className="mt-5 pt-4 border-t border-gray-200 flex items-center justify-between">
-
+      <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
         {/* Left: arrows */}
-        <div className="flex gap-3">
+        <div className="flex gap-4">
           <button
             onClick={goPrev}
             disabled={isAnimating}
-            className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-black hover:bg-black hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:border-white hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group/btn"
           >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:-translate-x-0.5 transition-transform">
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </button>
           <button
             onClick={goNext}
             disabled={isAnimating}
-            className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-black hover:bg-black hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:border-white hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed group/btn"
           >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-0.5 transition-transform">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>
         </div>
 
         {/* Right: ● ———— 01 / 03 */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           {/* dot */}
-          <span className="w-[7px] h-[7px] rounded-full bg-gray-800 flex-shrink-0" />
+          <span className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] flex-shrink-0" />
 
           {/* progress track */}
-          <div className="w-28 h-[2px] bg-gray-200 rounded-full overflow-hidden">
+          <div className="w-32 h-[3px] bg-white/10 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gray-800 rounded-full"
+              className="h-full bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)]"
               style={{ width: `${progress}%`, transition: "width 0.08s linear" }}
             />
           </div>
 
           {/* slide count */}
-          <span className="text-sm font-bold text-gray-800 tracking-wide tabular-nums">
+          <span className="text-sm font-bold text-white tracking-wide tabular-nums">
             {String(current + 1).padStart(2, "0")}
-            <span className="font-normal text-gray-400">
+            <span className="font-normal text-gray-500">
               {" / "}{String(projects.length).padStart(2, "0")}
             </span>
           </span>
         </div>
-
       </div>
     </section>
   );

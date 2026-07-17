@@ -1,119 +1,130 @@
 import { Cpu, Code, Brain } from "lucide-react";
+import { motion } from "framer-motion";
 
 function About() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
 
   return (
-
-    <section className="px-4 sm:px-8 py-8 max-w-6xl mx-auto">
+    <section className="px-4 sm:px-8 py-24 max-w-7xl mx-auto relative">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full filter blur-[120px] -z-10 pointer-events-none" />
 
       {/* Heading */}
-
-      <h2 className="text-4xl font-bold text-center mb-2">
-        About Me
-      </h2>
-
-      <p className="text-gray-600 text-center mt-4 mb-10">
-        Get to know more about me, my background, and my interests in technology.
-      </p>
-
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+          About Me
+        </h2>
+        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          Get to know more about me, my background, and my interests in technology.
+        </p>
+      </motion.div>
 
       {/* Main Container */}
-
-      <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-
-
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         {/* Left Content */}
-
-        <div className="flex-1 space-y-10">
-
-          {/* Card */}
-
-          <div className="bg-gradient-to-br from-white via-gray-100 to-gray-200 border border-gray-300 rounded-2xl p-6 sm:p-10 shadow-xl space-y-8 card-hover">
+        <motion.div 
+          className="flex-1 w-full"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <div className="glass-panel p-8 sm:p-10 space-y-10 relative overflow-hidden group">
+            {/* Subtle inner glow on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
             {/* Item 1 */}
-
-            <div className="flex gap-5 items-start">
-
-              <Cpu className="text-black mt-1" size={24} />
-
-              <p className="text-gray-700 leading-relaxed">
-
-                I am <span className="font-semibold text-black">Yug Patel</span>, a
+            <motion.div variants={itemVariants} className="flex gap-6 items-start">
+              <div className="p-3 rounded-xl bg-white/10 border border-white/10 shrink-0">
+                <Cpu className="text-white w-6 h-6" />
+              </div>
+              <p className="text-gray-400 leading-relaxed text-lg">
+                I am <span className="font-semibold text-white">Yug Patel</span>, a
                 Computer Science Engineering student at
-                <span className="font-semibold text-black"> Pandit Deendayal Energy University (PDEU)</span>.
+                <span className="font-semibold text-white"> Pandit Deendayal Energy University (PDEU)</span>.
                 I am passionate about building modern web applications and solving
                 real-world problems using technology.
-
               </p>
-
-            </div>
-
+            </motion.div>
 
             {/* Item 2 */}
-
-            <div className="flex gap-5 items-start">
-
-              <Code className="text-black mt-1" size={24} />
-
-              <p className="text-gray-700 leading-relaxed">
-
+            <motion.div variants={itemVariants} className="flex gap-6 items-start">
+              <div className="p-3 rounded-xl bg-white/10 border border-white/10 shrink-0">
+                <Code className="text-white w-6 h-6" />
+              </div>
+              <p className="text-gray-400 leading-relaxed text-lg">
                 My main focus is on
-                <span className="font-semibold text-black"> MERN stack development</span>
+                <span className="font-semibold text-white"> MERN stack development</span>
                 and building scalable applications using
-                <span className="font-semibold text-black"> React, Node.js, Express and MongoDB</span>.
-
+                <span className="font-semibold text-white"> React, Node.js, Express and MongoDB</span>.
               </p>
-
-            </div>
-
+            </motion.div>
 
             {/* Item 3 */}
-
-            <div className="flex gap-5 items-start">
-
-              <Brain className="text-black mt-1" size={24} />
-
-              <p className="text-gray-700 leading-relaxed">
+            <motion.div variants={itemVariants} className="flex gap-6 items-start">
+              <div className="p-3 rounded-xl bg-white/10 border border-white/10 shrink-0">
+                <Brain className="text-white w-6 h-6" />
+              </div>
+              <p className="text-gray-400 leading-relaxed text-lg">
                 I also enjoy exploring modern web technologies and building interactive
                 digital experiences. I like experimenting with new tools, frameworks,
                 and creative workflows to turn ideas into clean and responsive
                 applications.
               </p>
-
-            </div>
-
+            </motion.div>
           </div>
-        </div>
-
+        </motion.div>
 
         {/* Right Image */}
-
-        <div className="flex-1 flex justify-center">
-
-          <div className="relative">
-
-            {/* Metallic Frame */}
-
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-800 via-black to-gray-700 blur-md scale-110"></div>
-
-            {/* Image */}
-
-            <img
-              src="/assets/yug_profile_pic.png"
-              alt="Yug Patel"
-              className="relative w-72 h-50 object-cover rounded-full border-4 border-gray-800 shadow-2xl card-hover"
-            />
-
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex-1 flex justify-center w-full"
+        >
+          <div className="relative group perspective-1000">
+            {/* Glow behind image */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-gray-500/30 to-white/10 rounded-full blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
+            
+            {/* Image Container */}
+            <motion.div 
+              whileHover={{ scale: 1.05, rotateY: 10, rotateX: 5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative rounded-full p-2 bg-gradient-to-br from-white/20 to-white/5 border border-white/10 backdrop-blur-sm"
+            >
+              <img
+                src="/assets/yug_profile_pic.png"
+                alt="Yug Patel"
+                className="w-64 h-64 sm:w-80 sm:h-80 object-cover rounded-full shadow-2xl"
+              />
+            </motion.div>
           </div>
-
-        </div>
-
+        </motion.div>
       </div>
-
     </section>
-
   );
-
 }
 
 export default About;
