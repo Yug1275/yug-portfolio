@@ -1,10 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-white/30 selection:text-white;
+  }
+}
+
 /* ── card lift on hover ── */
 .card-hover {
-  @apply transition-all duration-500 ease-out hover:shadow-2xl hover:-translate-y-1;
+  @apply transition-all duration-500 ease-out hover:shadow-2xl hover:-translate-y-1 hover:border-white/20;
+}
+
+/* Premium utility classes */
+.glass-panel {
+  @apply bg-card backdrop-blur-md border border-border rounded-2xl;
 }
 
 /* ── hide scrollbar (kept in case used elsewhere) ── */
@@ -13,4 +26,21 @@
 }
 .scroll-container::-webkit-scrollbar {
   display: none;
+}
+
+/* Lenis Smooth Scroll Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }

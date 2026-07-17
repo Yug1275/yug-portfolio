@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ScrollToTop from "./components/Scroll";
+import SmoothScroll from "./components/SmoothScroll";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
@@ -35,29 +36,31 @@ function App() {
   }
 
   return (
-    <Router>
+    <SmoothScroll>
+      <Router>
 
-      <ScrollToTop />
+        <ScrollToTop />
 
-      <Navbar />
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/achievements" element={<Achievements />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
 
-      <Footer />
+        <Footer />
 
-      <Chatbot />
+        <Chatbot />
 
-    </Router>
+      </Router>
+    </SmoothScroll>
   );
 }
 
