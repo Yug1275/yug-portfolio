@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-white/30 selection:text-white;
+  html, body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-white/30 selection:text-white overflow-x-hidden;
   }
 }
 

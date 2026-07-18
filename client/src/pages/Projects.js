@@ -107,8 +107,7 @@ function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative overflow-hidden rounded-2xl" 
-        style={{ minHeight: 'clamp(350px, 50vw, 420px)' }}
+        className="relative overflow-hidden rounded-2xl min-h-[600px] sm:min-h-[650px] lg:min-h-[450px]" 
       >
         {projects.map((project, idx) => {
           const isCurrent = idx === current;

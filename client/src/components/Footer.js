@@ -92,11 +92,10 @@ function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Yug Patel. All rights reserved.</p>
-          <p className="flex items-center gap-1">
+          <p className="text-center md:text-left">© {new Date().getFullYear()} Yug Patel. All rights reserved.</p>
+          <p className="flex items-center justify-center gap-1">
             Built with <span className="text-red-500">❤️</span> By Yug Patel
           </p>
         </div>

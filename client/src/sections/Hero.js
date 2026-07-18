@@ -96,24 +96,24 @@ function Hero() {
           </motion.p>
 
           {/* Buttons */}
-          <motion.div variants={itemVariants} className="mt-10">
-            <div className="flex flex-wrap gap-5 justify-center">
-              <Link to="/projects">
+          <motion.div variants={itemVariants} className="mt-10 w-full px-4 sm:px-0">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-5 justify-center">
+              <Link to="/projects" className="w-full sm:w-auto">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="relative overflow-hidden group bg-white text-black px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-xl"
+                  className="relative overflow-hidden group bg-white text-black w-full sm:w-auto px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-xl"
                 >
                   <span className="relative z-10">View Projects</span>
                   <div className="absolute inset-0 bg-gray-200 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                 </motion.button>
               </Link>
 
-              <a href="/assets/Yug Patel Resume.pdf" download>
+              <a href="/assets/Yug Patel Resume.pdf" download className="w-full sm:w-auto">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3.5 rounded-full font-bold border border-white/20 bg-black/40 backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-white shadow-xl"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold border border-white/20 bg-black/40 backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-white shadow-xl"
                 >
                   Download Resume
                 </motion.button>

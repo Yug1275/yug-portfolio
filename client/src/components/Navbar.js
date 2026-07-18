@@ -13,8 +13,20 @@ function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+    
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsSidebarOpen(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    document.addEventListener("keydown", handleKeyDown);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const closeSidebar = () => {
@@ -46,19 +58,19 @@ function Navbar() {
             : "py-5 bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
-          <h1 className="text-xl font-bold tracking-tight text-white hover:text-gray-300 transition-colors">
-            <Link to="/">Yug Patel</Link>
-          </h1>
-
+        <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-center md:justify-between relative md:static min-h-[40px]">
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+            className="md:hidden absolute left-4 inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
             onClick={() => setIsSidebarOpen(true)}
             aria-label="Open menu"
           >
             <Menu className="w-6 h-6" />
           </button>
+
+          <h1 className="text-xl font-bold tracking-tight text-white hover:text-gray-300 transition-colors z-10 md:z-auto">
+            <Link to="/">Yug Patel</Link>
+          </h1>
 
           <div className="hidden md:flex md:items-center md:space-x-1 lg:space-x-2 text-sm font-medium">
             {navLinks.map((link) => {
