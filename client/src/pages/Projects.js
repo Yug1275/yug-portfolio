@@ -6,7 +6,7 @@ import { ExternalLink, Github } from "lucide-react";
 const SLIDE_DURATION = 5000;
 
 function Projects() {
-  const [projects, setProjects] = useState(projectsData);
+  const [projects] = useState(projectsData);
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
