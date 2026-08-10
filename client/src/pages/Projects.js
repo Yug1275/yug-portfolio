@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import projectsData from "../data/projects.json";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
-import clsx from "clsx";
 
 const SLIDE_DURATION = 3000;
 
@@ -29,7 +28,7 @@ function Projects() {
     const tick = (now) => {
       const delta = now - lastTimeRef.current;
       lastTimeRef.current = now;
-      
+
       if (!isPaused) {
         setProgress((prev) => prev + (delta / SLIDE_DURATION) * 100);
       }
@@ -50,9 +49,9 @@ function Projects() {
   const handleWheel = useCallback((e) => {
     if (Math.abs(e.deltaX) < 20) return; // ignore small trackpad wiggles
     if (wheelTimeout.current) return;
-    
+
     wheelTimeout.current = setTimeout(() => { wheelTimeout.current = null }, 800); // Cooldown
-    
+
     if (e.deltaX > 0) paginate(1);
     else if (e.deltaX < 0) paginate(-1);
   }, [paginate]);
@@ -62,7 +61,7 @@ function Projects() {
     setIsPaused(false); // resume on drag end
     const swipeThreshold = 50;
     const velocityThreshold = 500;
-    
+
     if (offset.x < -swipeThreshold || velocity.x < -velocityThreshold) {
       paginate(1);
     } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
@@ -100,9 +99,9 @@ function Projects() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[600px] bg-blue-500/5 rounded-full filter blur-[150px] -z-10 pointer-events-none" />
 
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-10">
-        
+
         {/* Header section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -118,23 +117,23 @@ function Projects() {
         </motion.div>
 
         {/* Carousel Area */}
-        <div 
+        <div
           className="relative w-full px-4 sm:px-12"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onWheel={handleWheel}
         >
-          
+
           {/* Navigation Arrows */}
-          <button 
+          <button
             onClick={() => paginate(-1)}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex justify-center items-center rounded-full bg-white/10 hover:bg-white border border-white/10 hover:border-white text-gray-300 hover:text-black transition-all duration-300 backdrop-blur-md"
             aria-label="Previous project"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
-          
-          <button 
+
+          <button
             onClick={() => paginate(1)}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex justify-center items-center rounded-full bg-white/10 hover:bg-white border border-white/10 hover:border-white text-gray-300 hover:text-black transition-all duration-300 backdrop-blur-md"
             aria-label="Next project"
@@ -159,7 +158,7 @@ function Projects() {
                 onDragEnd={handleDragEnd}
                 className="absolute inset-0 w-full h-full bg-[#121212] border border-white/5 shadow-2xl flex flex-col lg:flex-row cursor-grab active:cursor-grabbing rounded-[2.5rem] overflow-hidden"
               >
-                
+
                 {/* Image Left */}
                 <div className="relative w-full lg:w-2/5 h-1/2 lg:h-full shrink-0 overflow-hidden bg-black">
                   <img
@@ -184,8 +183,8 @@ function Projects() {
                   {/* Tech Stack Pills */}
                   <div className="flex flex-wrap gap-2 mb-8">
                     {projects[currentIndex].techStack.map((tech, i) => (
-                      <span 
-                        key={i} 
+                      <span
+                        key={i}
                         className="bg-white/10 border border-white/5 px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-gray-300 backdrop-blur-md shadow-sm"
                       >
                         {tech}
@@ -226,7 +225,7 @@ function Projects() {
         {/* Segmented Progress Bar */}
         <div className="flex justify-center items-center gap-2 mt-4 px-12 max-w-md mx-auto w-full">
           {projects.map((_, idx) => (
-            <div 
+            <div
               key={idx}
               className="flex-1 h-1.5 rounded-full bg-white/10 overflow-hidden relative cursor-pointer"
               onClick={() => {
@@ -237,7 +236,7 @@ function Projects() {
               }}
             >
               {idx === currentIndex && (
-                <motion.div 
+                <motion.div
                   className="absolute left-0 top-0 h-full bg-white"
                   style={{ width: `${Math.min(progress, 100)}%` }}
                 />
