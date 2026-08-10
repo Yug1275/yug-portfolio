@@ -102,21 +102,7 @@ function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <form
-              onSubmit={async (e) => {
-                await handleSubmit(e);
-                const formData = new FormData(e.target);
-                await fetch("https://yug-portfolio-backend.onrender.com/api/contact", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json"
-                  },
-                  body: JSON.stringify({
-                    name: formData.get("name"),
-                    email: formData.get("email"),
-                    message: formData.get("message")
-                  })
-                });
-              }}
+              onSubmit={handleSubmit}
               className="glass-panel p-8 sm:p-10"
             >
               <div className="space-y-8">

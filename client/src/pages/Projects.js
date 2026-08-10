@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef, useCallback } from "react";
-import API from "../utils/api";
+import projectsData from "../data/projects.json";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 const SLIDE_DURATION = 5000;
 
 function Projects() {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(projectsData);
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -16,17 +16,7 @@ function Projects() {
   const rafRef = useRef(null);
   const startTimeRef = useRef(null);
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await API.get("/projects/featured");
-        setProjects(res.data);
-      } catch (error) {
-        console.error("Failed to fetch projects", error);
-      }
-    };
-    fetchProjects();
-  }, []);
+
 
   const goTo = useCallback(
     (next, dir) => {

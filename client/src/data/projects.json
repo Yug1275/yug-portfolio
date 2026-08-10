@@ -1,0 +1,119 @@
+[
+  {
+    "title": "ClipHub",
+    "description": "A universal clipboard web application that allows users to instantly share text and files across devices. It supports real-time collaboration, secure sharing with password protection, auto-expiry, and QR-based access for seamless cross-device communication.",
+    "techStack": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Redis",
+      "Socket.io",
+      "JWT",
+      "WebSockets",
+      "Full Stack",
+      "Responsive Design"
+    ],
+    "githubLink": "https://github.com/Yug1275/ClipHub",
+    "liveLink": "https://clipdothub.netlify.app/",
+    "image": "/assets/ClipHub.jpg",
+    "featured": true
+  },
+  {
+    "title": "LinkHub",
+    "description": "A customizable web dashboard that enables users to organize, manage, and access their favorite websites from a single place. It features personalized dashboards, categorized links, drag-and-drop organization, widgets, and a modern responsive interface for a seamless browsing experience.",
+    "techStack": [
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "React DnD",
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "Mongoose"
+    ],
+    "githubLink": "https://github.com/Yug1275/LinkHub.git",
+    "liveLink": "https://linkhubyug.netlify.app/",
+    "image": "/assets/linkhub.jpg",
+    "featured": true
+  },
+  {
+    "title": "Green Hydrogen InfraVision",
+    "description": "Green Hydrogen InfraVision is a full-stack, AI-powered geospatial platform that enables users to explore, analyze, and optimize green hydrogen infrastructure through interactive maps. It features real-time asset visualization, AI-driven site analysis, sustainability insights, and gamified infrastructure planning, helping users make data-informed decisions for future hydrogen ecosystems.",
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Leaflet.js",
+      "OpenStreetMap",
+      "Node.js",
+      "Express.js",
+      "Groq API (Llama 3.1)",
+      "In-Memory Data Storage"
+    ],
+    "githubLink": "https://github.com/Yug1275/InfraVision.git",
+    "liveLink": "https://infravisionh2.onrender.com/",
+    "image": "/assets/infravision.png",
+    "featured": true
+  },
+  {
+    "title": "CampusConnect",
+    "description": "CampusConnect is a full-stack University Management Portal that unifies students, faculty, and campus services into a single digital platform. It provides secure authentication, event and academic management, interactive campus navigation, QR-based services, file management, and real-time communication, delivering a seamless and connected campus experience.",
+    "techStack": [
+      "React",
+      "Vite",
+      "Bootstrap",
+      "Axios",
+      "React Router DOM",
+      "React Icons",
+      "Leaflet",
+      "Chart.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "Mongoose",
+      "JWT",
+      "bcrypt",
+      "Google OAuth",
+      "Nodemailer",
+      "React Leaflet",
+      "OpenStreetMap",
+      "QRCode",
+      "QR Scanner",
+      "Multer"
+    ],
+    "githubLink": "https://github.com/Yug1275/CampusConnect.git",
+    "liveLink": "https://YOUR_DEPLOYMENT_URL",
+    "image": "/assets/campusconnect.png",
+    "featured": true
+  },
+  {
+    "title": "ThreatLens AI",
+    "description": "An AI-powered cyber threat intelligence platform for investigating URLs, Emails, QR codes, Phone Numbers, and Images using OSINT and AI-driven threat analysis.",
+    "techStack": [
+      "React",
+      "Vite",
+      "Bootstrap 5",
+      "Framer Motion",
+      "Node.js",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "Supabase",
+      "SQLAlchemy",
+      "JWT",
+      "Groq AI",
+      "Tavily API",
+      "EasyOCR",
+      "Docker",
+      "Full Stack",
+      "Responsive Design"
+    ],
+    "githubLink": "https://github.com/Yug1275/ThreatLens-AI",
+    "liveLink": "https://threat-lens-ai-yug.vercel.app/",
+    "image": "/assets/threatlens-ai.png",
+    "featured": true
+  }
+]
