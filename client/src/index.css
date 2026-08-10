@@ -41,6 +41,19 @@ html.lenis, html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
-.lenis.lenis-smooth iframe {
+.lenis.lenis-smooth iframe:not([src*="botpress"]):not([id*="bp"]):not([title*="botpress"]):not([title*="Chat"]):not([title*="Assistant"]) {
   pointer-events: none;
+}
+
+/* Fix Botpress Webchat: allow pointer events and scrolling on all Botpress elements */
+html.lenis iframe[src*="botpress"],
+html.lenis iframe[id*="bp"],
+html.lenis iframe[title*="botpress"],
+html.lenis iframe[title*="Chat"],
+html.lenis iframe[title*="Assistant"],
+html.lenis #bp-web-widget,
+html.lenis [class*="bp-"],
+html.lenis [id*="bp-"] {
+  pointer-events: auto !important;
+  overscroll-behavior: contain !important;
 }
