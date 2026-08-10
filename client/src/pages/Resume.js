@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Eye } from "lucide-react";
+import { Eye } from "lucide-react";
 
 function Resume() {
   const resumeFile = "/assets/Yug Patel Resume.pdf"; // put resume in public/assets
@@ -18,7 +18,7 @@ function Resume() {
         >
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">Resume</h1>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            View or download my resume below.
+            View my resume below.
           </p>
         </motion.div>
 
@@ -44,25 +44,16 @@ function Resume() {
             </div>
           </div>
 
-          {/* DOWNLOAD BUTTON */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
+          {/* VIEW BUTTON */}
+          <div className="flex justify-center gap-4 mt-8">
             <a
               href={resumeFile}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/10 px-8 py-3.5 rounded-full text-white font-medium transition-all duration-300 shadow-xl"
-            >
-              <Eye className="w-5 h-5" />
-              <span>Open in Browser</span>
-            </a>
-            
-            <a
-              href={resumeFile}
-              download
               className="flex items-center gap-2 bg-white text-black hover:bg-gray-200 px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-xl group/btn"
             >
-              <Download className="w-5 h-5 group-hover/btn:-translate-y-0.5 transition-transform" />
-              <span>Download PDF</span>
+              <Eye className="w-5 h-5 group-hover/btn:-translate-y-0.5 transition-transform" />
+              <span>View Resume</span>
             </a>
           </div>
         </motion.div>

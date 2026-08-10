@@ -109,13 +109,13 @@ function Hero() {
                 </motion.button>
               </Link>
 
-              <a href="/assets/Yug Patel Resume.pdf" download className="w-full sm:w-auto">
+              <a href="/assets/Yug Patel Resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full sm:w-auto px-8 py-3.5 rounded-full font-bold border border-white/20 bg-black/40 backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all duration-300 text-white shadow-xl"
                 >
-                  Download Resume
+                  View Resume
                 </motion.button>
               </a>
             </div>

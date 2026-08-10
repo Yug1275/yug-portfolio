@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { Eye } from "lucide-react";
 
 function Achievements() {
   const achievements = [
@@ -145,15 +145,16 @@ function Achievements() {
                 {item.description}
               </p>
 
-              {/* DOWNLOAD BUTTON */}
+              {/* VIEW BUTTON */}
               <div className="flex justify-center mt-auto">
                 <a
                   href={item.certificate}
-                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-white/10 hover:bg-white border border-white/10 hover:border-white px-5 py-2.5 rounded-full text-white hover:text-black font-medium transition-all duration-300 text-sm group/btn"
                 >
-                  <Download className="w-4 h-4 group-hover/btn:-translate-y-0.5 transition-transform" />
-                  <span>Certificate</span>
+                  <Eye className="w-4 h-4 group-hover/btn:-translate-y-0.5 transition-transform" />
+                  <span>View Certificate</span>
                 </a>
               </div>
             </motion.div>
